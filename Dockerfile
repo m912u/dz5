@@ -6,7 +6,9 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     export DEBIAN_FRONTEND=noninteractive && \
     apt-get install -y -q python-all python-pip && \
-    pip install -qr requirements.txt
+    pip install -qr requirements.txt && \
+    mkdir /opt/webapp && \
+    cp app.py /opt/webapp
 EXPOSE 5000
-CMD ["app.py"]
+CMD ["/opt/webapp/app.py"]
 
